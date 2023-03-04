@@ -10,18 +10,16 @@ if __name__ == '__main__':
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--glu', action='store_true', help='print with out glu')
     args = parser.parse_args()
-    api = Api.Api(args.firstFile, args.secondFile)
+    api = Api.Api(args.firstFile[2::], args.secondFile[2::])
     diff = api.run(not args.glu, True)
+    if diff == "one or both of files does not exist":
+    	print("one or both of files does not exist")
 
 else:
-    if __name__ == 'tkdiffTask_test':
-        def __init__(self, firstFile, secondFile):
-            self.__firstFile = firstFile
-            self.__secondFile = secondFile
-            api = Api.Api(self.__firstFile,self.__secondFile)
-            diff = api.run(gui=False,print=False)
-            return diff
-    else:
+    if not (__name__ == 'main'):
         print("https://www.youtube.com/watch?v=bgJ_1WuhUig")
         exit(-1)
-
+def main(firstFile, secondFile):
+    api = Api.Api(firstFile,secondFile)
+    diff = api.run(gui=False,printt=False)
+    return diff
