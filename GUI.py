@@ -63,17 +63,50 @@ class GUI:
         label7 = Label(frame3, text="orange:chars changed	", fg="orange")
         label7.grid(row=1, column=4)
 
-    def insertToText(self, n, text):
+    def add_red_text(self, n, text, start, end):
         if n == 0:
             self.__file_lines1.insert("end", text)
+            self.__file_lines1.tag_add("red", start, end)
         else:
             self.__file_lines2.insert("end", text)
+            self.__file_lines2.tag_add("red", start, end)
+
+    def add_yellow_text(self, n, text, start, end):
+        if n == 0:
+            self.__file_lines1.insert("end", text)
+            self.__file_lines1.tag_add("yellow", start, end)
+        else:
+            self.__file_lines2.insert("end", text)
+            self.__file_lines2.tag_add("yellow", start, end)
+
+    def add_blue_text(self, n, text, start, end):
+        if n == 0:
+            self.__file_lines1.insert("end", text)
+            self.__file_lines1.tag_add("blue", start, end)
+        else:
+            self.__file_lines2.insert("end", text)
+            self.__file_lines2.tag_add("blue", start, end)
+
+    def add_orange_text(self, n, text, start, end):
+        if n == 0:
+            self.__file_lines1.insert("end", text)
+            self.__file_lines1.tag_add("orange", start, end)
+        else:
+            self.__file_lines2.insert("end", text)
+            self.__file_lines2.tag_add("orange", start, end)
+
+    def add_green_text(self, n, text, start, end):
+        if n == 0:
+            self.__file_lines1.insert("end", text)
+            self.__file_lines1.tag_add("green", start, end)
+        else:
+            self.__file_lines2.insert("end", text)
+            self.__file_lines2.tag_add("green", start, end)
 
     def highLightText(self, n, color, start, end):
         if n == 0:
             self.__file_lines1.tag_add(color, start, end)
         else:
             self.__file_lines2.tag_add(color, start, end)
-
     def mainLoop(self):
         self.__root.mainloop()
